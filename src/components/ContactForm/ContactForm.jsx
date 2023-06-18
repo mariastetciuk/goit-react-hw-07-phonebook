@@ -21,13 +21,13 @@ export const ContactForm = () => {
       alert(`${form.elements.name.value} is already in contacts.`);
       return;
     }
-    const ddd = {
-      name: form.elements.name.value,
-      number: form.elements.number.value,
-    };
-    console.log(ddd);
 
-    dispatch(addContactThunk(ddd));
+    dispatch(
+      addContactThunk({
+        name: form.elements.name.value,
+        number: form.elements.number.value,
+      })
+    );
     form.reset();
   };
 

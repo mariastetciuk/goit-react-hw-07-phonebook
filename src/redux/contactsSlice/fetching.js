@@ -13,7 +13,7 @@ export const addContact = async value => {
     value
   );
 
-  console.log(value);
+  console.log(data);
 
   return data;
 };
