@@ -7,14 +7,13 @@ export const getAllContacts = async () => {
   return data;
 };
 
-export const addContact = async (name, phone) => {
-  await axios.post(
+export const addContact = async value => {
+  const { data } = await axios.post(
     'https://648c3c498620b8bae7ec84ad.mockapi.io/contacts/',
-    JSON.stringify(name, phone)
+    value
   );
 
-  // const { data } = await axios.get(
-  //   'https://648c3c498620b8bae7ec84ad.mockapi.io/contacts/'
-  // );
-  // return data;
+  console.log(value);
+
+  return data;
 };

@@ -10,42 +10,44 @@ export const addContactThunk = createAsyncThunk('contacts/addContact', () => {
 });
 
 const handlePending = state => {
-  state.contacts.isLoading = true;
+  state.isLoading = true;
 };
 
 const handleFulfilledContacts = (state, { payload }) => {
-  state.contacts.items = payload;
-  state.contacts.isLoading = false;
-  state.contacts.error = null;
+  state.items = payload;
+  state.isLoading = false;
+  state.error = null;
 };
 
-// const handleFulfilledAddContacts = (state, { payload }) => {
-//   state.contacts.items = payload;
-//   state.contacts.isLoading = false;
-//   state.contacts.error = null;
-// };
+const handleFulfilledAddContacts = (state, { payload }) => {
+  console.log(payload);
+  // state.items.push(payload);
+  // state.isLoading = false;
+  // state.error = null;
+};
 
 const handleRejected = (state, { payload }) => {
-  state.contacts.isLoading = false;
-  state.contacts.error = payload;
+  state.isLoading = false;
+  state.error = payload;
 };
 
 const initialState = {
-  contacts: {
-    items: [],
-    isLoading: false,
-    error: null,
-  },
+  items: [],
+  isLoading: false,
+  error: null,
 };
 
 export const contactsSlice = createSlice({
-  name: 'contacts/fetchAll',
+  name: 'contacts',
   initialState: initialState,
   extraReducers: builder => {
     builder
       .addCase(getContactsThunk.pending, handlePending)
       .addCase(getContactsThunk.fulfilled, handleFulfilledContacts)
-      .addCase(getContactsThunk.rejected, handleRejected);
+      .addCase(getContactsThunk.rejected, handleRejected)
+      .addCase(addContactThunk.pending, handlePending)
+      .addCase(addContactThunk.fulfilled, handleFulfilledAddContacts)
+      .addCase(addContactThunk.rejected, handleRejected);
   },
 });
 
