@@ -23,7 +23,7 @@ export const App = () => {
       {items.length === 0 ? <span>Phonebook is still empty</span> : <Filter />}
       {isLoading === true && <span>Loading, please wait...</span>}
       <ContactList />
-      {/* {error !== null && <span>Oops, try again</span>} */}
+      {error !== null && <span>Oops, try again</span>}
     </div>
   );
 };
