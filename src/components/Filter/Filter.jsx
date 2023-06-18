@@ -1,9 +1,9 @@
 import css from './Filter.module.css';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 // import { addFilter } from 'redux/filterSlice/filterSlice';
 
 export function Filter() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // const hendleFilterChange = event => {
   //   dispatch(addFilter(event.target.value));

@@ -1,4 +1,3 @@
-import { getContactsThunk } from 'redux/contactsSlice/contactSlice';
 import css from './ContactForm.module.css';
 import { useSelector } from 'react-redux';
 

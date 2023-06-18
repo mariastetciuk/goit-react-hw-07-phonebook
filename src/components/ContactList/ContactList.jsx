@@ -2,7 +2,7 @@ import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 // import { deleteContacts } from 'redux/contactsSlice/contactSlice';
-import { getContacts, getFilterValue } from 'redux/selectors';
+// import { getContacts, getFilterValue } from 'redux/selectors';
 import { getContactsThunk } from 'redux/contactsSlice/contactSlice';
 
 export function ContactList() {
