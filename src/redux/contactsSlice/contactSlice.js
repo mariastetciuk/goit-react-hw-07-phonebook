@@ -19,11 +19,11 @@ const handleFulfilledContacts = (state, { payload }) => {
   state.contacts.error = null;
 };
 
-const handleFulfilledAddContacts = (state, { payload }) => {
-  state.contacts.items = payload;
-  state.contacts.isLoading = false;
-  state.contacts.error = null;
-};
+// const handleFulfilledAddContacts = (state, { payload }) => {
+//   state.contacts.items = payload;
+//   state.contacts.isLoading = false;
+//   state.contacts.error = null;
+// };
 
 const handleRejected = (state, { payload }) => {
   state.contacts.isLoading = false;
