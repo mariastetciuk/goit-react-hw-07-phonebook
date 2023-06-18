@@ -1,13 +1,15 @@
 import css from './Filter.module.css';
-// import { useDispatch } from 'react-redux';
-// import { addFilter } from 'redux/filterSlice/filterSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addFilter } from 'redux/filterSlice';
+import { getFilterValue } from 'redux/selectors';
 
 export function Filter() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const filter = useSelector(getFilterValue);
 
-  // const hendleFilterChange = event => {
-  //   dispatch(addFilter(event.target.value));
-  // };
+  const hendleFilterChange = event => {
+    dispatch(addFilter(event.target.value));
+  };
   return (
     <label className={css.label} htmlFor="">
       Find contacts by me
@@ -15,7 +17,8 @@ export function Filter() {
         className={css.label}
         type="text"
         name="filter"
-        // onChange={hendleFilterChange}
+        value={filter}
+        onChange={hendleFilterChange}
       />
     </label>
   );

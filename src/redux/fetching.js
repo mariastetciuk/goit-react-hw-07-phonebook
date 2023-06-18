@@ -13,7 +13,12 @@ export const addContact = async value => {
     value
   );
 
-  console.log(data);
+  return data;
+};
 
+export const deleteContact = async id => {
+  const { data } = await axios.delete(
+    `https://648c3c498620b8bae7ec84ad.mockapi.io/contacts/${id}`
+  );
   return data;
 };
