@@ -1,19 +1,30 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { addContact, getAllContacts } from './fetching';
-
+import { getAllContacts } from './fetching';
+import axios from 'axios';
 export const getContactsThunk = createAsyncThunk('contacts/fetchAll', () =>
   getAllContacts()
 );
 
-export const addContactThunk = createAsyncThunk('contacts/addContact', () => {
-  addContact();
-});
+export const addContactThunk = createAsyncThunk(
+  'contacts/addContact',
+  async value => {
+    const { data } = await axios.post(
+      'https://648c3c498620b8bae7ec84ad.mockapi.io/contacts/',
+      value
+    );
+
+    console.log(data);
+
+    return data;
+  }
+);
 
 const handlePending = state => {
   state.isLoading = true;
 };
 
 const handleFulfilledContacts = (state, { payload }) => {
+  console.log(payload);
   state.items = payload;
   state.isLoading = false;
   state.error = null;

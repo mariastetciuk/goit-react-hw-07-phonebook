@@ -25,7 +25,7 @@ export const ContactForm = () => {
     dispatch(
       addContactThunk({
         name: form.elements.name.value,
-        number: form.elements.number.value,
+        phone: form.elements.number.value,
       })
     );
     form.reset();
