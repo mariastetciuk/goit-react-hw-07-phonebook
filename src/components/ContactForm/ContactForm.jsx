@@ -1,7 +1,12 @@
 import css from './ContactForm.module.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  addContactThunk,
+  getContactsThunk,
+} from 'redux/contactsSlice/contactSlice';
 
 export const ContactForm = () => {
+  const dispatch = useDispatch();
   const { items } = useSelector(state => state.contacts.contacts);
 
   const handleFormSubmit = event => {
@@ -18,16 +23,14 @@ export const ContactForm = () => {
       alert(`${form.elements.name.value} is already in contacts.`);
       return;
     }
-  };
 
-  //   dispatch(
-  //     addContacts({
-  //       name: form.elements.name.value,
-  //       number: form.elements.number.value,
-  //     })
-  //   );
-  //   form.reset();
-  // };
+    dispatch(
+      addContactThunk(form.elements.name.value, form.elements.number.value)
+    );
+
+    dispatch(getContactsThunk());
+    form.reset();
+  };
 
   return (
     <form className={css.form} onSubmit={handleFormSubmit}>
