@@ -26,7 +26,10 @@ export function ContactList() {
             <button
               className={css.contacts__btn}
               type="button"
-              onClick={() => dispatch(deleteContactThunk(id))}
+              onClick={() => {
+                console.log(id, name, phone);
+                dispatch(deleteContactThunk(id));
+              }}
             >
               Delete
             </button>
